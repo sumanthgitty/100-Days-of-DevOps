@@ -1,0 +1,20 @@
+- name: Install cronie and configure cron job
+  hosts: appservers
+  become: yes
+  tasks:
+    - name: Install cronie
+      yum:
+        name: cronie
+        state: present
+
+    - name: Ensure crond service is running
+      service:
+        name: crond
+        state: started
+        enabled: yes
+
+    - name: Add cron job for root
+      cron:
+        name: "Echo hello to /tmp/cron_text every 5 minutes"
+        minute: "*/5"
+        job: "echo hello > /tmp/cron_text"
