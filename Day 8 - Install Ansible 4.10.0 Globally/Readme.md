@@ -1,5 +1,4 @@
 ### Question:
-
 Install Ansible version 4.10.0 on the Jump Host using pip3 only. Ensure that the Ansible binary is available globally, so all users on the system can run Ansible commands.
 
 ### Solution (Steps):
