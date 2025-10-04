@@ -11,12 +11,12 @@ They need a script named ecommerce_backup.sh placed under /scripts on App Server
 
 ### Solution:
 
-## 1. Install required package
+#### 1. Install required package
 ```sh
 sudo yum install -y zip   
 ```
 
-## 2. Setup SSH keys for passwordless login
+#### 2. Setup SSH keys for passwordless login
 
 Generate SSH key (if not already created):
 ```sh
@@ -31,7 +31,7 @@ Verify passwordless access:
 ssh clint@stbkp01
 ```
 
-## 3. Create the backup script
+#### 3. Create the backup script
 vi /scripts/ecommerce_backup.sh
 ```sh
 #!/bin/bash
@@ -49,16 +49,16 @@ ssh clint@stbkp01 "mkdir -p /backup"
 scp /backup/xfusioncorp_ecommerce.zip clint@stbkp01:/backup/
 ```
 
-## 4. Make the script executable
+#### 4. Make the script executable
 ```sh
 chmod 755 /scripts/ecommerce_backup.sh
 ```
 
-## 5. Run the script
+#### 5. Run the script
 
 /scripts/ecommerce_backup.sh
 
-## 6. Verify backup
+#### 6. Verify backup
 ```sh
 ls -l /backup/
 ssh clint@stbkp01 "ls -l /backup/"
