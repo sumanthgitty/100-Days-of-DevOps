@@ -18,6 +18,6 @@ then add the following content:
 Run `ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts.ini playbook.yaml`
 
 To **verify** run:
-- `curl http://stapp01:6400`   # from jumphost
+- `curl http://stapp01:6400`   # Should fail from non-LBR
 
-- `curl http://stapp01:5004`   # from lbr host
+- `curl http://stapp01:5004`   # Should succeed from LBR-host
