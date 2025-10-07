@@ -7,7 +7,7 @@ We have one of our websites up and running on our Nautilus infrastructure in Str
 
 ### Solution: 
 
-I used ansible to complete this task so install ansible using 
+I used ansible to complete this task so install **ansible** using 
 
 `sudo yum install ansible -y`
 
@@ -17,7 +17,7 @@ then add the following content:
 
 Run `ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts.ini playbook.yaml`
 
-To verify run:
-`curl http://stapp01:6400`   # from jumphost
+To **verify** run:
+- `curl http://stapp01:6400`   # from jumphost
 
-`curl http://stapp01:5004`   # from lbr host
+- `curl http://stapp01:5004`   # from lbr host
