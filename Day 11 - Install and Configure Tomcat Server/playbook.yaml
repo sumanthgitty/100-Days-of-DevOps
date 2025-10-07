@@ -1,0 +1,25 @@
+- name: Deploy Java app on Tomcat
+  hosts: stapp02
+  become: yes
+  tasks:
+    - name: Install Tomcat
+      ansible.builtin.package:
+        name: tomcat
+        state: present
+
+    - name: Change Tomcat default port to 3004
+      ansible.builtin.replace:
+        path: /etc/tomcat/server.xml
+        regexp: 'port="8080"'
+        replace: 'port="3004"'
+
+    - name: Copy ROOT.war to Tomcat webapps
+      ansible.builtin.copy:
+        src: /tmp/ROOT.war
+        dest: /usr/share/tomcat/webapps/ROOT.war
+        mode: '0644'
+
+    - name: Restart Tomcat
+      ansible.builtin.service:
+        name: tomcat
+        state: restarted
