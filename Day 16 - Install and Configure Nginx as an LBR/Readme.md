@@ -1,4 +1,4 @@
-### Question:
+### Question: Install and Configure Nginx as an LBR
 
 - Install Nginx on the LBR (load balancer) server.
 - Configure HTTP load-balancing in /etc/nginx/nginx.conf using all App Servers.
