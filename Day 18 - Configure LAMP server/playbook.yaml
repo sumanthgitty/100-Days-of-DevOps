@@ -1,0 +1,76 @@
+- name: setup httpd php php-mysqlnd
+  hosts: appservers
+  become: yes
+  tasks:
+    - name: install packages
+      ansible.builtin.package:
+        name:
+          - httpd
+          - php
+          - php-mysqlnd
+        state: present
+
+    - name: configure httpd
+      ansible.builtin.replace:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: '^Listen\s+80'
+        replace: 'Listen 5000'
+
+    - name: php script
+      ansible.builtin.copy:
+        dest: /var/www/html/db_test.php
+        content: |
+          <?php
+          $servername = "stdb01";
+          $username = "kodekloud_rin";
+          $password = "LQfKeWWxWD";
+          $dbname = "kodekloud_db8";              
+
+          // Create connection
+          $conn = new mysqli($servername, $username, $password, $dbname);
+
+          // Check connection
+          if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+          }
+          echo "App is able to connect to the database using user kodekloud_rin";
+          ?>
+
+    - name: restart httpd
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: yes
+
+- name: setup mariadb on db server
+  hosts: dbserver
+  become: yes
+  tasks:
+    - name: install mariabd 
+      ansible.builtin.package:
+        name:
+          - mariadb
+          - mariadb-server
+          - python3-PyMySQL
+        state: present
+  
+    - name: start and enable db
+      ansible.builtin.service:
+        name: mariadb
+        state: started
+        enabled: yes
+
+    - name: create mariadb db
+      community.mysql.mysql_db:
+        name: kodekloud_db8
+        state: present
+        login_unix_socket: /var/lib/mysql/mysql.sock
+
+    - name: create user with all privilages
+      community.mysql.mysql_user:
+        name: kodekloud_rin
+        password: LQfKeWWxWD
+        priv: 'kodekloud_db8.*:ALL'
+        host: '%'
+        state: present     
+        login_unix_socket: /var/lib/mysql/mysql.sock
