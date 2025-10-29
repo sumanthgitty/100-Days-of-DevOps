@@ -1,0 +1,40 @@
+- name: Setup Apache for multiple sites
+  hosts: stapp03
+  become: yes
+  tasks:
+    - name: Install httpd
+      ansible.builtin.package:
+        name: httpd
+        state: present
+
+    - name: Change Apache listen port to 5002
+      ansible.builtin.lineinfile:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: '^Listen'
+        line: 'Listen 5002'
+        backup: yes
+
+    - name: Create parent directory for websites
+      ansible.builtin.file:
+        path: /var/www/html
+        state: directory
+        owner: apache
+        group: apache
+        mode: '0755'
+
+    - name: Copy website folders from jump host
+      ansible.builtin.copy:
+        src: "/home/thor/{{ item }}"
+        dest: "/var/www/html/"
+        owner: apache
+        group: apache
+        mode: '0755'
+      loop:
+        - news
+        - games
+
+    - name: Restart Apache service
+      ansible.builtin.service:
+        name: httpd
+        state: restarted
+        enabled: yes
