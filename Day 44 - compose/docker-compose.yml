@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  httpd:
+    container_name: httpd
+    image: httpd:latest
+    ports:
+      - "5000:80"
+    volumes:
+      - /opt/finance:/usr/local/apache2/htdocs
