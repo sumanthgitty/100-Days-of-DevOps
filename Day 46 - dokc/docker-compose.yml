@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  web:
+    container_name: php_apache
+    image: php:apache
+    ports:
+      - "6300:80"
+    volumes:
+      - /var/www/html:/var/www/html
+
+  DB:
+    container_name: mysql_apache
+    image: mariadb:latest
+    ports:
+      - "3306:3306"
+    volumes:
+      - /var/lib/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=database_apache
+      - MARIADB_USER=froze
+      - MARIADB_PASSWORD=froze07*
+      - MARIADB_ROOT_PASSWORD=RootP@ss123
