@@ -5,7 +5,7 @@ Create `/opt/security/docker-compose.yml` on App Server 1 to deploy two services
 `1. Web service`
 - Container name: php_apache
 - Image: php:apache
-- Port mapping: 6300 → 80
+- Port mapping: 6300 - 80
 - Volume: /var/www/html:/var/www/html
 
 `2. DB service`
