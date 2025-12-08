@@ -1,4 +1,4 @@
-### Task - 
+### Task - Deploy an App on Docker Containers
 
 Create `/opt/security/docker-compose.yml` on App Server 1 to deploy two services:
 
@@ -51,7 +51,7 @@ docker compose -f /opt/security/docker-compose.yml up -d
 # to verify
 docker ps 
 
-curl <server-ip>:6300/   or curl http://localhost:6300/
+curl <server-ip>:6300/   or   curl http://localhost:6300/                     
 ```
 
 - [docker-compose.yml](./docker-compose.yml)
