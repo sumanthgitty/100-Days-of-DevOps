@@ -39,7 +39,7 @@ COPY certs/server.key /usr/local/apache2/conf/server.key
 COPY html/index.html /usr/local/apache2/htdocs/
 ```
 
-# commands
+commands:
 ```sh
 cd /opt/docker/
 docker build -t httpd .
