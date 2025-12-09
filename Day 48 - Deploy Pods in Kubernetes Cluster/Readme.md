@@ -5,10 +5,9 @@ The Nautilus DevOps team is diving into Kubernetes for application management. O
 - Set the app label to `nginx_app`, and name the container as `nginx-container`.
 
 ### Solution - 
-```sh
-vi pod.yml
 
-# add the following:
+#### add the following to pod.yml:
+```sh
 apiVersion: v1
 kind: Pod
 metadata:
@@ -24,11 +23,12 @@ spec:
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
+```
+- [pod-nginx.yaml](pod-nginx.yaml)
 
-# Commands:
+#### Commands:
 kubetcl apply -f pod.yml
 kubectl get pods
 
-# Verify 
+#### Verify 
 kubectl logs pod-nginx
-```
