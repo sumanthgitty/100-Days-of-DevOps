@@ -27,8 +27,12 @@ status: {}
 - [pod-nginx.yaml](pod-nginx.yaml)
 
 #### Commands:
+```sh
 kubetcl apply -f pod.yml
 kubectl get pods
+```
 
-#### Verify 
+#### Verify:
+```sh
 kubectl logs pod-nginx
+```
