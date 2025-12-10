@@ -1,4 +1,4 @@
-### Task - 
+### Task - Resolve VolumeMounts Issue in Kubernetes
 
 We encountered an issue with our Nginx and PHP-FPM setup on the Kubernetes cluster this morning, which halted its functionality. Investigate and rectify the issue:
 - The pod name is nginx-phpfpm and configmap name is nginx-config. Identify and fix the problem.
