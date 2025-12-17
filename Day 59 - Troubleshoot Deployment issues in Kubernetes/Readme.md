@@ -23,10 +23,10 @@ kubectl get configmap                       # To verify correct cm name
 - Changed image to `redis:alpine`
 - Changed ConfigMap to `redis-config`
 
-- [corrected-deployment.yaml](./deployment.yaml)
-
 ### Verification:
 ```sh
 kubectl get pods
 kubectl get deployment redis-deployment
 ```
+
+- [corrected-deployment.yaml](./deployment.yaml)
