@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ic-nautilus
+  name: ic-deploy-nautilus
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ic-nautilus
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ic-nautilus
+    spec:
+      initContainers:
+      - image: debian:latest
+        name: ic-msg-nautilus
+        command:
+        - /bin/bash
+        - -c
+        - echo Init Done - Welcome to xFusionCorp Industries > /ic/news
+        volumeMounts:
+        - mountPath: /ic
+          name: ic-volume-nautilus
+      containers:
+      - image: debian:latest
+        imagePullPolicy: Always
+        name: ic-main-nautilus
+        command:
+        - /bin/bash
+        - -c
+        - while true; do cat /ic/news; sleep 5; done
+        volumeMounts:
+        - mountPath: /ic
+          name: ic-volume-nautilus
+        
+      volumes:
+      - name: ic-volume-nautilus
+        emptyDir: {}
+status: {}
