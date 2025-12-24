@@ -1,4 +1,4 @@
-### Task - secert
+### Task - Manage Secrets in Kubernetes
 
 The Nautilus DevOps team needs to securely store license information using Kubernetes Secrets.
 - Create a `generic secret` named `official` from the file `/opt/official.txt`.
