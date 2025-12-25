@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    run: iron-gallery
+  name: iron-gallery-service-nautilus
+  namespace: iron-namespace-nautilus
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 32678
+  selector:
+    run: iron-gallery
+  type: NodePort
+status:
+  loadBalancer: {}
