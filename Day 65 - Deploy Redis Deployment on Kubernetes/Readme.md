@@ -1,4 +1,4 @@
-### Task - 
+### Task - Deploy Redis Deployment on Kubernetes
 
 The Nautilus team decided to deploy Redis as an in-memory cache to improve application performance in Kubernetes.
 
