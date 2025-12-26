@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2025-12-26T13:16:21Z"
+  labels:
+    app: mysql-deployment
+  name: mysql
+  namespace: default
+  resourceVersion: "4800"
+  uid: 28c2b3ae-42d6-4c33-84f4-423906e4d451
+spec:
+  clusterIP: 10.96.42.120
+  clusterIPs:
+  - 10.96.42.120
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 30007
+    port: 3306
+    protocol: TCP
+    targetPort: 3306
+  selector:
+    app: mysql-deployment
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
