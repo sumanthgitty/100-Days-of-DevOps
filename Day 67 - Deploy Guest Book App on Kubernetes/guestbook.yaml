@@ -40,7 +40,7 @@ spec:
   - port: 6379
     targetPort: 6379
 ---
-# =========================
+
 # Redis Slave Deployment
 # =========================
 apiVersion: apps/v1
@@ -85,7 +85,7 @@ spec:
   - port: 6379
     targetPort: 6379
 ---
-# =========================
+
 # Frontend Deployment
 # =========================
 apiVersion: apps/v1
