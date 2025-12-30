@@ -1,10 +1,10 @@
-### Task -
+### Task - Set Up Jenkins Server
 
 The DevOps team at xFusionCorp Industries is initiating the setup of CI/CD pipelines and has decided to utilize Jenkins as their server. Execute the task according to the provided requirements:
 
-- 1. Install Jenkins on the jenkins server using the yum utility only, and start its service.
+- Install Jenkins on the jenkins server using the yum utility only, and start its service.
 
-- 2. Jenkin's admin user name should be `theadmin`, password should be `Adm!n321`, full name should be `Kirsty` and email should be `kirsty@jenkins.stratos.xfusioncorp.com`.
+- Jenkin's admin user name should be `theadmin`, password should be `Adm!n321`, full name should be `Kirsty` and email should be `kirsty@jenkins.stratos.xfusioncorp.com`.
 
 ### Solution -
 
@@ -14,7 +14,7 @@ The DevOps team at xFusionCorp Industries is initiating the setup of CI/CD pipel
 ssh root@jenkins
 ```
 
-#### add the following to .sh
+#### Add the following to .sh
 - [Script](./jenkins.sh)
 ```sh
 #!/bin/bash
