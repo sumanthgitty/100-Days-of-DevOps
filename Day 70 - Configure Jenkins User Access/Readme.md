@@ -26,7 +26,6 @@ Password: Adm!n321
 #### 3. Create Jenkins User
 
 - Go to Manage Jenkins > Manage Users > Click Create User
-
 - Enter:
 ```sh
 Username: john
@@ -38,14 +37,13 @@ Click Create User
 #### 4. Enable Project-based Matrix Authorization
 
 - Go to Manage Jenkins > Configure Global Security > Under Authorization > select Project-based Matrix Authorization Strategy
-
 - Add users:
 ```sh
 admin
 john
 ```
 
-- [ss](./jenkins1.png)
+![ss](./jenkins1.png)
 
 #### 5. Configure Global Permissions
 
@@ -60,4 +58,4 @@ Click Save.
 - Open the existing Jenkins job
 - Click Configure > Scroll to Project-based Security > Add user john > Grant only: Job -> `Read`
 
-- [ss](./jenkins1-1.png)
+![ss](./jenkins1-1.png)
