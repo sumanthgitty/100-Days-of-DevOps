@@ -38,4 +38,4 @@ echo "Environment is: $env"
 
 - Click Build with Parameters.
 - Select `env` as `Staging` and trigger the build.
-- Verify the build succeeds and parameters are printed in the console output which is `Staging`.
+- Verify the build succeeds and parameters are printed in the console output which is `Staging` for env and `build` for Stage.
