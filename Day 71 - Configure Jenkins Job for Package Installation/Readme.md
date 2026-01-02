@@ -44,11 +44,11 @@ Credentials: natasha
 - Job name: `install-packages`
 - Select Freestyle project
 - Enable This project is parameterized
-![ss](./jenkins1.png)
 ```sh
 Add String Parameter
 Name: PACKAGE
 ```
+![ss](./jenkins1.png)
 - Configure Build Step > Under Build, select `Execute shell script on remote host using SSH`
 - Add command:
 ```sh
