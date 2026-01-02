@@ -52,6 +52,7 @@ App Server 1 will copy the logs to storage server, so it needs its `own SSH key`
 */6 * * * *
 ```
 ![ss](./jenkins1-2.png)
+
 Why:
 Runs the job every 6 minutes automatically.
 
