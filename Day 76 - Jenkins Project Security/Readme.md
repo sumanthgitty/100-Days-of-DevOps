@@ -17,6 +17,7 @@ Password: Adm!n321
 
 #### 2. Configure Global Access (minimum)
 
+- Install `Matrix Authorization Strategy Plugin` and Restart.
 - Go to Manage Jenkins > Configure Global Security > authorization > create user `sam, rohan` > Ensure users have `Read access` so they can see `Jenkins/jobs`.
 
 ![ss](./jenkins1.png)
