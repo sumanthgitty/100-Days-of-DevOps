@@ -18,6 +18,7 @@ Password: Adm!n321
 #### 2. Configure Global Access (minimum)
 
 - Go to Manage Jenkins > Configure Global Security > authorization > create user `sam, rohan` > Ensure users have `Read access` so they can see `Jenkins/jobs`.
+
 ![ss](./jenkins1.png)
 
 #### 3. Configure Job-level Permissions for Packages
@@ -28,4 +29,5 @@ Password: Adm!n321
   - `Job - Read, Build Configure`
 - For rohan:
   - `Job - Read, Build, Cancel, Configure, Update, Tag`
+
 ![ss](./jenkins1-1.png)
