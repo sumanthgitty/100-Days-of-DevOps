@@ -1,0 +1,16 @@
+pipeline {
+    agent { label 'ststor01' }
+
+    stages {
+        stage('Deploy') {
+            steps {
+                sh '''
+                    echo "Deployment started"
+                    git clone http://git.stratos.xfusioncorp.com/sarah/web_app.git /tmp/app
+                    cp -r /tmp/app/* /var/www/html/
+                    echo "Deployment Finished"
+                '''
+            }
+        }
+    }
+}
