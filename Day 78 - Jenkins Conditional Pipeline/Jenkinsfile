@@ -1,0 +1,20 @@
+pipeline {
+    agent { label 'ststor01' }
+
+    stages {
+        stage('Deploy') {
+            when {
+                expression {
+                    params.BRANCH == 'master' || params.BRANCH == 'feature'
+                }
+            }
+            steps {
+                sh '''
+                    cd /var/www/html
+                    git checkout $BRANCH
+                    git pull origin $BRANCH
+                '''
+            }
+        }
+    }
+}
